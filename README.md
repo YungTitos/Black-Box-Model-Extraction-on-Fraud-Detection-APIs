@@ -1,3 +1,12 @@
 # Black-Box-Model-Extraction-on-Fraud-Detection-APIs
 
 This project provides a practical demonstration of black-box model extraction attacks against Machine Learning as a Service (MLaaS) platforms using a credit card fraud detection scenario. It establishes two distinct victim oracles—an interpretable Logistic Regression and a deep Multi-Layer Perceptron (MLP)—trained on an institutionally relevant financial dataset. To simulate real-world defensive constraints, the MLP API is hardened to return only hard class labels instead of continuous probabilities, forcing the adversary to abandon exact mathematical equation-solving. Instead, the attacker executes learning-based functional approximation attacks, querying the target APIs to train local surrogate architectures (including SVMs, Random Forests, and Shadow NNs) across varying query budgets. The vulnerability of the APIs is systematically stress-tested against three escalating adversarial threat models: querying with a misaligned zero-knowledge public proxy dataset, an unseen but geometrically aligned proxy, and a leaked sample of the target's exact training distribution. Surrogate fidelity is then rigorously evaluated by measuring agreement with the target's decision boundary rather than baseline accuracy. Finally, the project leverages these extracted boundaries to craft feature-space evasion attacks, proving that an adversary can use a stolen surrogate to successfully bypass the victim's fraud detection logic.
+
+References
+
+[1] Tramèr, F., Zhang, F., Reiter, M. K., Juels, A., & Ristenpart, T. (2016). Stealing Machine Learning Models via Prediction APIs. USENIX Security Symposium.
+[2] Carlini, N., Jagielski, M., & Mironov, I. (2020). Cryptanalytic Extraction of Neural Network Models. arXiv preprint arXiv:2003.04884.
+[3] Jagielski, M., Carlini, N., Berthelot, D., Kurakin, A., & Papernot, N. (2020). High Accuracy and High Fidelity Extraction of Neural Networks. USENIX Security Symposium.
+[4] Orekondy, T., Schiele, B., & Fritz, M. (2019). Knockoff Nets: Stealing Functionality of Black-Box Models. IEEE/CVF Conference on Computer Vision and Pattern Recognition.
+[5] Krishna, K., Papernot, N., Tomar, G. S., Iyyer, M., & Parikh, A. P. (2020). Thieves on Sesame Street! Model Extraction of BERT-based APIs. ICLR.
+[6] Pal, S., Gupta, Y., Shukla, A., Kanade, A., Shevade, S., & Ganapathy, V. (2020). Active Thief: Model Extraction Using Active Learning and Unannotated Public Data. Proceedings of the AAAI Conference on Artificial Intelligence.
